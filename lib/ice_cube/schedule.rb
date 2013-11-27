@@ -345,6 +345,11 @@ module IceCube
     def self.load(yaml)
       from_yaml(yaml) unless yaml.nil? || yaml.empty?
     end
+    
+    def ==(other)
+      other.class == self.class && other.to_yaml == self.to_yaml
+    end
+    alias_method :eql?, :==
 
     private
 
